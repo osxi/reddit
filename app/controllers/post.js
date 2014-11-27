@@ -2,7 +2,6 @@ import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
   netVotes: function() {
-    var model = this.get('model');
-    return model.get('upVotes') - model.get('downVotes');
+    return this.get('model.upVotes') - this.get('model.downVotes');
   }.property('downVotes', 'upVotes')
 });
