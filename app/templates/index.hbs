@@ -1,7 +1,7 @@
 <h5>Index Template</h5>
 
 <ul>
-  {{#each post in controller}}
+  {{#each post in model}}
     <li>
       {{#link-to 'post' post}}
         ({{post.netVotes}}) {{post.title}}</li>
