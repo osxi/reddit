@@ -1,0 +1,10 @@
+<h5>Index Template</h5>
+
+<ul>
+  {{#each post in controller}}
+    <li>
+      {{#link-to 'post' post}}
+        ({{post.netVotes}}) {{post.title}}</li>
+      {{/link-to}}
+  {{/each}}
+</ul>
