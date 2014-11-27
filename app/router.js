@@ -1,7 +1,8 @@
 import Ember from 'ember';
+import ENV from 'reddit/config/environment';
 
 var Router = Ember.Router.extend({
-  location: RedditENV.locationType
+  location: ENV.locationType
 });
 
 Router.map(function() {

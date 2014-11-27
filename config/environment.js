@@ -2,10 +2,11 @@
 
 module.exports = function(environment) {
   var ENV = {
-    myFirebase: '',
+    modulePrefix: 'reddit',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    myFirebase: '',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -25,10 +26,24 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.contentSecurityPolicy = {
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://*.firebaseio.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.firebaseio.com",
+      'report-uri': "http://localhost:4200",
+      'frame-src': "https://*.firebaseio.com"
+    }
   }
 
   if (environment === 'test') {
-    ENV.baseURL = '/'; // Testem prefers this...
+    // Testem prefers this...
+    ENV.baseURL = '/';
+    ENV.locationType = 'auto';
+
+    // keep test console output quieter
+    ENV.APP.LOG_ACTIVE_GENERATION = false;
+    ENV.APP.LOG_VIEW_LOOKUPS = false;
+
+    ENV.APP.rootElement = '#ember-testing';
   }
 
   if (environment === 'production') {
