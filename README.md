@@ -1,5 +1,7 @@
 # Reddit
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/osxi/reddit.svg)](https://greenkeeper.io/)
+
 A simple Reddit-like clone using ember-cli and Firebase.
 
 ## Prerequisites
